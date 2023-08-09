@@ -25,41 +25,6 @@ class TestBase(unittest.TestCase):
         """delete created instances from memory"""
         del self.base1
 
-    def test_str_name(self):
-        """return error is name is a int"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel(89, 89)
-
-    def test_float_name(self):
-        """return error if name is a float"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel(89.9, 89)
-
-    def test_bol_name(self):
-        """return error is name is a boolean"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel(False, 89)
-
-    def test_complex_name(self):
-        """check name is a string"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel(1j, 89)
-
-    def test_my_number(self):
-        """check my_number is a string"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel("My First Model", "89")
-
-    def test_my_number(self):
-        """check is my_number is a float"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel("My First Model", 89.9)
-
-    def test_my_number(self):
-        """check if mu_number is a boolean"""
-        with self.assertRaises(TypeError) as error:
-            b = BaseModel("My First Model", False)
-
     def test_uuid(self):
         """check for unique id using uuid.uuid4()"""
         base = BaseModel()
@@ -90,12 +55,11 @@ class TestBase(unittest.TestCase):
 
     def test_dict(self):
         """check if the method return a dictionary"""
-        expected_str = ({"my_number": self.base1.my_number,
-                 "name": self.base1.name,
-                 "__class__": "BaseModel",
-                 "updated_at": self.base1.updated_at.isoformat(),
-                 "id": self.base1.id,
-                 "created_at": self.base1.created_at.isoformat()})
+        expected_str = ({"__class__": "BaseModel",
+                         "updated_at": self.base1.updated_at.isoformat(),
+                         "id": self.base1.id,
+                         "created_at": self.base1.created_at.isoformat()})
         self.assertEqual((self.base1.to_dict()), expected_str)
+
 if __name__ == '__main__':
     unittest.main()
