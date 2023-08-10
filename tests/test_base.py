@@ -14,16 +14,16 @@ class TestBase(unittest.TestCase):
     """defines a test case class"""
 
     @classmethod
-    def setUp(self):
+    def setUp(cls):
        """initialize object"""
-       self.base1 = BaseModel()
-       self.name = "My First Model"
-       self.my_number = 89
+       cls.base1 = BaseModel()
+       cls.name = "My First Model"
+       cls.my_number = 89
 
     @classmethod
-    def tearDown(self):
+    def tearDown(cls):
         """delete created instances from memory"""
-        del self.base1
+        del cls.base1
 
     def test_uuid(self):
         """check for unique id using uuid.uuid4()"""
