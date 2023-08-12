@@ -11,12 +11,13 @@ from models.engine.file_storage import FileStorage
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = '(hbnb)'
+    class_list = ["BaseModel"]
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it"""
         if not arg:
             print("** class name missing **")
-        elif arg != "BaseModel":
+        elif arg not in HBNBCommand.class_list:
             print("** class doesn't exist **")
         else:
             base = BaseModel()
@@ -27,20 +28,21 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """string representation of an instance based on the class name / id"""
         args = line.split()
+        objects = {}
+        found_object = {}
         if not args:
             print("** class name missing **")
-        elif args[0] != "BaseModel":
+        elif args[0] not in HBNBCommand.class_list:
             print("** class doesn't exist **")
-        elif args[0] == "BaseModel" and len(args) < 2:
+        elif len(args) < 2:
             print("** instance id missing **")
         else:
-            base = BaseModel()
-            base.save()
-            print(base.id)
-            if args[0] == "BaseModel" and args[1] != base.id:
+            objects = FileStorage().all()
+            key = f"{args[0]}.{args[1]}"
+            if (key not in tuple(objects.keys())):
                 print("** no instance found **")
             else:
-                print(base.__str__())
+                print(objects.get(key))
 
     def emptyline(self):
         """empty file should execute nothing"""
