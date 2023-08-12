@@ -17,7 +17,7 @@ class BaseModel():
                     continue
                 if key == 'created_at' or key == 'updated_at':
                     setattr(self, key, datetime.strptime
-                            (value,'%Y-%m-%dT%H:%M:%S.%f'))
+                            (value, '%Y-%m-%dT%H:%M:%S.%f'))
                 else:
                     setattr(self, key, value)
         else:
@@ -38,8 +38,9 @@ class BaseModel():
         storage.save()
 
     def to_dict(self):
-        """return a dictionary with keys/values of an instance"""
-        #loop through self.__dict__
+        """return a dictionary with keys/values of an instance
+           loop through self.__dict__
+        """
         new_dict = {}
         for key, value in self.__dict__.items():
             new_dict[key] = value.isoformat() if "_at" in key else value
