@@ -15,10 +15,10 @@ class TestBase(unittest.TestCase):
 
     @classmethod
     def setUp(cls):
-       """initialize object"""
-       cls.base1 = BaseModel()
-       cls.name = "My First Model"
-       cls.my_number = 89
+        """initialize object"""
+        cls.base1 = BaseModel()
+        cls.name = "My First Model"
+        cls.my_number = 89
 
     @classmethod
     def tearDown(cls):
@@ -60,6 +60,7 @@ class TestBase(unittest.TestCase):
                          "id": self.base1.id,
                          "created_at": self.base1.created_at.isoformat()})
         self.assertEqual((self.base1.to_dict()), expected_str)
+
 
 if __name__ == '__main__':
     unittest.main()

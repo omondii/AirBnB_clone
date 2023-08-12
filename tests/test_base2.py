@@ -23,16 +23,16 @@ class TestBase(unittest.TestCase):
         cls.tvar = str(datetime.now())
         cls.tvarft = datetime.strptime(cls.tvar, '%Y-%m-%d %H:%M:%S.%f')
         cls.base1 = BaseModel()
-        cls.base1 = BaseModel(id = 3, created_at = str(cls.tvarft.strftime
-                                                       ('%Y-%m-%dT%H:%M:%S.%f'))
-                              ,updated_at = str(cls.tvarft.strftime
-                                               ('%Y-%m-%dT%H:%M:%S.%f')))
+        cls.base1 = BaseModel(id=3, created_at=str(cls.tvarft.strftime
+                                                   ('%Y-%m-%dT%H:%M:%S.%f'))
+                                  , updated_at=str(cls.tvarft.strftime
+                                                   ('%Y-%m-%dT%H:%M:%S.%f')))
 
         cls.timed = str(datetime.now())
         cls.timedft = datetime.strptime(cls.timed, '%Y-%m-%d %H:%M:%S.%f')
-        cls.base2 = BaseModel(created_at = str(cls.timedft.
-                                               strftime('%Y-%m-%dT%H:%M:%S.%f'
-                                               )))
+        cls.base2 = BaseModel(created_at=str(cls.timedft.
+                                             strftime('%Y-%m-%dT%H:%M:%S.%f'
+                                              )))
 
     @classmethod
     def tearDown(cls):
