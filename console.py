@@ -28,9 +28,15 @@ class HBNBCommand(cmd.Cmd):
             print(list_message[1])
         elif caller == 'destroy' and arg.split()[0] not in HBNBCommand.classls:
             print(list_message[1])
+        elif caller == 'all' and arg not in HBNBCommand.classls:
+            print(list_message[1])
+        elif caller == 'update' and arg.split()[0] not in HBNBCommand.classls:
+            print(list_message[1])
         elif caller == "show" and len(arg.split()) < 2:
             print(list_message[2])
         elif caller == "destroy" and len(arg.split()) < 2:
+            print(list_message[2])
+        elif caller == "update" and len(arg.split()) < 2:
             print(list_message[2])
         else:
             return 0
@@ -75,6 +81,43 @@ class HBNBCommand(cmd.Cmd):
             else:
                 del objects[key]
                 storage.save()
+
+    def do_all(self, arg):
+        """Prints all string representation of all instances based or
+           not on the class name.
+        """
+        objects = {}
+        if HBNBCommand.error_message("all", arg) is None:
+            return
+        else:
+            objects = FileStorage().all()
+            class_objects = []
+            for obj in objects.values():
+                if type(obj).__name__ == arg:
+                    description = str(obj)
+                    class_objects.append(description)
+            print(class_objects)
+
+    def do_update(self, arg):
+        objects = {}
+        args = arg.split()
+        if HBNBCommand.error_message("update", arg) is None:
+            return (None)
+        objects = FileStorage().all()
+        key = f"{args[0]}.{args[1]}"
+
+        if key not in objects:
+            print("** no instance found **")
+        elif len(args) < 3:
+            print("** attribute name missing **")
+        elif len(args) < 4:
+            print("** value missing **")
+        else:
+            obj = objects[key]
+            key_name = args[2]
+            value_name = args[3]
+            setattr(obj, key_name, value_name)
+            obj.save()
 
     def emptyline(self):
         """empty file should execute nothing"""
