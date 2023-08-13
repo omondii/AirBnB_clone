@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"BaseModel.0e217635-72d1-4629-a635-3908a9f6bb29": {"id": "0e217635-72d1-4629-a635-3908a9f6bb29", "created_at": "2023-08-13T12:05:43.116902", "updated_at": "2023-08-13T12:05:43.117043", "__class__": "BaseModel"}}
+=======
+{"BaseModel.d5bf42a2-9480-4efa-8441-490a1a25c95f": {"id": "d5bf42a2-9480-4efa-8441-490a1a25c95f", "created_at": "2023-08-13T11:20:24.011141", "updated_at": "2023-08-13T13:20:07.243173", "email": "qir@gmail.com", "__class__": "BaseModel"}}
+>>>>>>> a4b9ea81317cbc8884f3634231d3c156fc74468a
