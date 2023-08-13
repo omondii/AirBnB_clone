@@ -7,12 +7,12 @@ import sys
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = '(hbnb)'
-    classls = ["BaseModel"]
+    classls = ["BaseModel", "User"]
 
     @staticmethod
     def error_message(caller, arg):
@@ -46,10 +46,12 @@ class HBNBCommand(cmd.Cmd):
         if HBNBCommand.error_message("create", arg) is None:
             return
         else:
-            base = BaseModel()
-            base.save()
-            base_id = base.id
-            print(base_id)
+            for cls in HBNBCommand.classls:
+                if cls == arg:
+                    base = eval(cls)()
+                    base.save()
+                    base_id = base.id
+                    print(base_id)
 
     def do_show(self, arg):
         """string representation of an instance based on the class name / id"""

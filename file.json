@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-{"BaseModel.0e217635-72d1-4629-a635-3908a9f6bb29": {"id": "0e217635-72d1-4629-a635-3908a9f6bb29", "created_at": "2023-08-13T12:05:43.116902", "updated_at": "2023-08-13T12:05:43.117043", "__class__": "BaseModel"}}
-=======
-{"BaseModel.d5bf42a2-9480-4efa-8441-490a1a25c95f": {"id": "d5bf42a2-9480-4efa-8441-490a1a25c95f", "created_at": "2023-08-13T11:20:24.011141", "updated_at": "2023-08-13T13:20:07.243173", "email": "qir@gmail.com", "__class__": "BaseModel"}}
->>>>>>> a4b9ea81317cbc8884f3634231d3c156fc74468a
+{"User.b427d3fe-7b0f-4d24-952f-ead7ad2981e2": {"id": "b427d3fe-7b0f-4d24-952f-ead7ad2981e2", "created_at": "2023-08-13T13:56:38.869534", "updated_at": "2023-08-13T13:56:38.869564", "__class__": "User"}, "BaseModel.516b9558-6aef-4a08-8f10-b7c0bb59e4e5": {"id": "516b9558-6aef-4a08-8f10-b7c0bb59e4e5", "created_at": "2023-08-13T13:57:13.233927", "updated_at": "2023-08-13T13:57:13.233965", "__class__": "BaseModel"}}
