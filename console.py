@@ -116,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
             obj = objects[key]
             key_name = args[2]
             value_name = args[3]
-            setattr(obj, key_name, value_name)
+            setattr(obj, key_name, eval(value_name))
             obj.save()
 
     def emptyline(self):
