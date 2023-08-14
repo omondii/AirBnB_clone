@@ -14,6 +14,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = '(hbnb)'
@@ -106,6 +107,17 @@ class HBNBCommand(cmd.Cmd):
                     class_objects.append(description)
             print(class_objects)
 
+    def default(self, arg):
+        """if we dont have any valid method such as User.all()"""
+        obj = []
+        for cls in HBNBCommand.classls:
+            default_cls = f"{cls}.all()"
+            if arg == default_cls:
+                self.do_all(cls)
+                return
+            else:
+                print("Unknown command:", arg)
+
     def do_update(self, arg):
         objects = {}
         args = arg.split()
@@ -145,5 +157,12 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    my_cmd = HBNBCommand()
-    my_cmd.cmdloop()
+    if len(sys.argv) > 1:
+        # Read commands from stdin
+        commands = sys.stdin.readlines()
+        my_cmd = HBNBCommand(stdin=commands)
+        my_cmd.cmdloop()
+    else:
+        # Interactive mode
+        my_cmd = HBNBCommand()
+        my_cmd.cmdloop()
