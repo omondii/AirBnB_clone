@@ -121,7 +121,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             return cmd.Cmd.default(self, arg)
 
-
     def do_update(self, arg):
         objects = {}
         args = arg.split()
