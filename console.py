@@ -161,12 +161,5 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        # Read commands from stdin
-        commands = sys.stdin.readlines()
-        my_cmd = HBNBCommand(stdin=commands)
-        my_cmd.cmdloop()
-    else:
-        # Interactive mode
-        my_cmd = HBNBCommand()
-        my_cmd.cmdloop()
+    my_cmd = HBNBCommand()
+    my_cmd.cmdloop()
