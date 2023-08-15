@@ -129,6 +129,20 @@ class HBNBCommand(cmd.Cmd):
                     class_objects.append(description)
             print(class_objects)
 
+    def default(self, arg):
+        """Handle unknown commands."""
+        objects = FileStorage().all()
+        arg_split = arg.split('.')
+        class_name = arg_split[0]
+        if class_name in HBNBCommand.classls and arg_split[1] == 'all()':
+            user_obj = []
+            for key, value in objects.items():
+                if class_name in key:
+                    user_obj.append(str(value))
+            print(user_obj)
+        else:
+            return cmd.Cmd.default(self, arg)
+
     def do_update(self, arg):
         objects = {}
         args = arg.split()
