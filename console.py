@@ -14,6 +14,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """contains the entry point of the command interpreter"""
     prompt = '(hbnb)'
@@ -46,6 +47,28 @@ class HBNBCommand(cmd.Cmd):
             print(list_message[2])
         else:
             return 0
+
+    @staticmethod
+    def arg_str(arg):
+        """
+        Builds a string from the arguments within quotation marks
+        Params:
+          arg: string
+          return: the string within "" as a string
+        """
+        temp = []
+        increment = 3
+        value = ""
+
+        temp = arg.split()
+        while (increment < len(temp)):
+            value += temp[increment]
+            if (temp[increment].endswith("\"")):
+                break
+            value += " "
+            increment += 1
+
+            return(value[1:-1])
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it"""

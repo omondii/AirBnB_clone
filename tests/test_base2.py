@@ -24,8 +24,8 @@ class TestBase(unittest.TestCase):
         cls.tvarft = datetime.strptime(cls.tvar, '%Y-%m-%d %H:%M:%S.%f')
         cls.base1 = BaseModel()
         cls.base1 = BaseModel(id=3, created_at=str(cls.tvarft.strftime
-                                                   ('%Y-%m-%dT%H:%M:%S.%f'))
-                                  , updated_at=str(cls.tvarft.strftime
+                                                   ('%Y-%m-%dT%H:%M:%S.%f')),
+                              updated_at=str(cls.tvarft.strftime
                                                    ('%Y-%m-%dT%H:%M:%S.%f')))
 
         cls.timed = str(datetime.now())
