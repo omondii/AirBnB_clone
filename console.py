@@ -108,15 +108,19 @@ class HBNBCommand(cmd.Cmd):
             print(class_objects)
 
     def default(self, arg):
-        """if we dont have any valid method such as User.all()"""
-        obj = []
-        for cls in HBNBCommand.classls:
-            default_cls = f"{cls}.all()"
-            if arg == default_cls:
-                self.do_all(cls)
-                return
-            else:
-                print("Unknown command:", arg)
+        """Handle unknown commands."""
+        objects = FileStorage().all()
+        arg_split = arg.split('.')
+        class_name = arg_split[0]
+        if class_name in HBNBCommand.classls and arg_split[1] == 'all()':
+            user_obj = []
+            for key, value in objects.items():
+                if class_name in key:
+                    user_obj.append(str(value))
+            print(user_obj)
+        else:
+            return cmd.Cmd.default(self, arg)
+
 
     def do_update(self, arg):
         objects = {}
