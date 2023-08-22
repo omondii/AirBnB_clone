@@ -1,44 +1,27 @@
 .places{
-    position: absolute;
+    text-align: center;
     font-size: 30px;
 }
+.places h1{
+    text-align: left;
+}
+
+.places div {
+    width: 390px;
+    margin: 20px;
+    padding: 20px;
+    border: #FF5A5F 1px solid;
+    border-radius: 4px;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
 
 .left {
-    font-size: 30px;
-    width: 390px;
-    height: 30px;
     float: left;
-    margin: 0;
-    padding: 20px;
-    border: 1px solid #FF5A5F;
-    margin: 20px;
-    border-radius: 4px;
-    position: relative;
 }
 
 .right{
-    position: absolute;
-    font-size: 30px;
-    width: 390px;
-    height: 30px;
     float: right;
-    margin: 0;
-    padding: 20px;
-    border: 1px solid #FF5A5F;
-    margin: 20px;
-    border-radius: 4px;
-    position: relative;
-}
-
-.centre {
-    position: absolute;
-    font-size: 30px;
-    width: 390px;
-    height: 30px;
-    margin: 0;
-    padding: 20px;
-    border: 1px solid #FF5A5F;
-    margin: 20px;
-    border-radius: 4px;
-    position: relative;
 }
